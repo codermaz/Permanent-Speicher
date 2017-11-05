@@ -1,10 +1,4 @@
-//
-//  ViewController.swift
-//  Permanent Speicher
-//
-//  Created by MacMini on 05.11.17.
-//  Copyright © 2017 MacMini. All rights reserved.
-//
+
 
 import UIKit
 
@@ -12,15 +6,18 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var textFieldOutlet: UITextField!
     @IBAction func speichernPressed(_ sender: Any) {
+        // 1. um data zu schreiben
         UserDefaults.standard.set(textFieldOutlet.text, forKey: "number")
     }
+    
     @IBOutlet weak var memoryOutlet: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
+
+        // 2. um data abzulesen
         let numberObject = UserDefaults.standard.object(forKey: "number")
+        // 3. Datatype ändern  :  von Object zu String
         if let number = numberObject as? String {
             memoryOutlet.text = number
         } else {
@@ -30,7 +27,6 @@ class ViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 
