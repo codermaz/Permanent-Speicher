@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,58 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Permanent_Speicher" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lass mich eine Zahl merken?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xtg-HF-Jie">
+                                <rect key="frame" x="77" y="73" width="221" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Trag die Nummer hier ein" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cGJ-IO-PCT">
+                                <rect key="frame" x="95.5" y="149" width="184" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTr-Vw-4i2">
+                                <rect key="frame" x="152" y="211" width="70" height="30"/>
+                                <state key="normal" title="Speichern"/>
+                                <connections>
+                                    <action selector="speichernPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tf5-xh-npl"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toV-Pz-Fp8">
+                                <rect key="frame" x="166.5" y="289" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="toV-Pz-Fp8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0UB-Gc-aQg"/>
+                            <constraint firstItem="Xtg-HF-Jie" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="53" id="8b7-jE-mps"/>
+                            <constraint firstItem="gTr-Vw-4i2" firstAttribute="top" secondItem="cGJ-IO-PCT" secondAttribute="bottom" constant="32" id="CCg-AC-W5B"/>
+                            <constraint firstItem="toV-Pz-Fp8" firstAttribute="top" secondItem="gTr-Vw-4i2" secondAttribute="bottom" constant="48" id="Ke8-nd-ozZ"/>
+                            <constraint firstItem="cGJ-IO-PCT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VIs-20-dxl"/>
+                            <constraint firstItem="gTr-Vw-4i2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aFO-ix-vvg"/>
+                            <constraint firstItem="Xtg-HF-Jie" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oss-cb-ueO"/>
+                            <constraint firstItem="cGJ-IO-PCT" firstAttribute="top" secondItem="Xtg-HF-Jie" secondAttribute="bottom" constant="55" id="pZD-1n-rYV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="memoryOutlet" destination="toV-Pz-Fp8" id="q73-2M-pDU"/>
+                        <outlet property="textFieldOutlet" destination="cGJ-IO-PCT" id="se8-47-XDD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="118.29085457271366"/>
         </scene>
     </scenes>
 </document>
